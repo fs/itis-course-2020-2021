@@ -35,16 +35,10 @@ get "/todos/:id" do
 end
 
 post "/todos" do
-  if params["custom_method"] == "DELETE"
-    result = conn.exec("DELETE FROM todos WHERE id=#{params['id']}")
+  result = conn.exec("INSERT INTO todos (title) VALUES ('#{params["title"]}') RETURNING id")
+  id = result[0]["id"]
 
-    redirect to("/todos")
-  else
-    result = conn.exec("INSERT INTO todos (title) VALUES ('#{params["title"]}') RETURNING id")
-    id = result[0]["id"]
-
-    redirect to("/todos/#{id}")
-  end
+  redirect to("/todos/#{id}")
 end
 
 post "/todos/:id" do
@@ -53,5 +47,9 @@ post "/todos/:id" do
     id = params["id"]
 
     redirect to("/todos/#{id}")
+  elsif params["custom_method"] == "DELETE"
+    result = conn.exec("DELETE FROM todos WHERE id=#{params['id']}")
+
+    redirect to("/todos")
   end
 end
