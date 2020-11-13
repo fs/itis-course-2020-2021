@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20_201_102_125_820) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.bigint 'task_id', null: false
-    t.index ['task_id'], name: 'index_comments_on_task_id'
   end
 
   create_table 'tasks', force: :cascade do |t|

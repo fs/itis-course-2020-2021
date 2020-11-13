@@ -19,6 +19,5 @@ table
         = comment.content
       td
         = link_to "Destroy", comment_path(id: comment.id),
-        -             method: :delete,
-        -             data: { confirm: 'Are you sure?' }
-    - - end
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' }

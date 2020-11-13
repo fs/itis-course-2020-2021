@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.actual.super_actual.limit(10).offset(2).order(id: :desc)
+    @tasks = Task.all
   end
 
   # GET /tasks/1
