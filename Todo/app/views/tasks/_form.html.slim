@@ -1,0 +1,13 @@
+= form_with(model: task, local: true) do |form|
+  - if task.errors.any?
+    h2
+      = pluralize(task.errors.count, "error")
+    ul
+      - task.errors.full_messages.each do |message|
+        li
+          = message
+  .field
+    = form.label :title
+    = form.text_field :title
+  .actions
+    = form.submit

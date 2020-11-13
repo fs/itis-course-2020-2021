@@ -1,0 +1,24 @@
+p#notice
+  = notice
+p#alert[style="color: red"]
+  = alert
+p
+  strong
+    | Title:
+  = @task.title
+= link_to 'Edit', edit_task_path(@task)
+|  | 
+= link_to 'Back', tasks_path
+h3
+  |  Comments 
+= render "comments/form", task: @task
+table
+  - @task.comments.each do |comment|
+    tr
+      td
+        = comment.content
+      td
+        = link_to "Destroy", comment_path(id: comment.id),
+        -             method: :delete,
+        -             data: { confirm: 'Are you sure?' }
+    - - end

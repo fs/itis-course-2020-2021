@@ -1,14 +1,13 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy, :show]
+  before_action :set_task, only: %i[edit update destroy show]
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @tasks = Task.actual.super_actual.limit(10).offset(2).order(id: :desc)
   end
 
   # GET /tasks/1
-  def show
-  end
+  def show; end
 
   # GET /tasks/new
   def new
@@ -16,15 +15,14 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tasks
   def create
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to(@task, notice: "Tasls was successfully created")
+      redirect_to(@task, notice: 'Tasls was successfully created')
     else
       render :new
     end
@@ -40,7 +38,7 @@ class TasksController < ApplicationController
   end
 
   # DELETE /tasks/1
-  def destroy    
+  def destroy
     @task.destroy
 
     redirect_to tasks_url, notice: 'Task was successfully destroyed.'
@@ -49,7 +47,7 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params["id"])
+    @task = Task.find(params['id'])
   end
 
   def task_params
