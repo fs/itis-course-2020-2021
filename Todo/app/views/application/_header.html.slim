@@ -1,0 +1,10 @@
+header.header
+  = link_to root_path, class: 'header__logo' do
+    => image_tag 'tasks.svg', class: 'logo--small'
+    | Tasks App
+
+  ul.menu
+    li 
+      = link_to 'Homepage', root_path
+    li
+      = link_to 'Tasks', tasks_path

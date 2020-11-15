@@ -15,3 +15,9 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import Tasks from '../components/tasks';
+
+Array.from(document.querySelectorAll('.js-tasks')).forEach(($el) => {
+  new Tasks($el);
+});

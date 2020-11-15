@@ -1,0 +1,40 @@
+.form {
+	margin: 10px 0 20px;
+
+	.field {
+		display: flex;
+		align-items: center;
+		margin-bottom: 15px;
+	}
+
+	label {
+		margin-right: 7px;
+	}
+}
+
+.button {
+	background-color :#599bb3;
+	border-radius: 2px;
+	display: inline-block;
+	cursor: pointer;
+	color: $white;
+	font-weight: bold;
+	padding: 5px 8px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #3d768a;
+	border: none;
+	outline: none;
+
+  &:hover {
+    background-color: #408c99;
+		color: $white;
+		animation: skyblue-to-pink 2s ease infinite;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+@include animation-mixin(skyblue-to-pink, #599bb3, pink);

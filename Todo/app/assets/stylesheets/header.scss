@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 35px;
+  background: darken($white, 10%);
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    color: $black;
+    text-decoration: none;
+
+    img {
+      width: 30px;
+    }
+  }
+}
+
+.menu {
+  font-size: 16px;
+
+  li {
+    display: inline-block;
+    padding: 0 5px;
+    list-style: none;
+  }
+
+  a {
+    padding: 4px 7px;
+    color: $blue;
+    border-radius: 2px;
+
+    &:hover {
+      color: darken($blue, 15%);
+    }
+  }
+}

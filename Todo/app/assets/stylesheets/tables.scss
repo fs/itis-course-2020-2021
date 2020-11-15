@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 30px 0;
+}
+
+th {
+  padding: 5px;
+  border-bottom: 1px solid lighten($gray, 20%);
+  text-align: left;
+}
+
+tr {
+  &:nth-child(2n+1) td {
+    background: lighten($gray, 65%);
+  }
+
+  td.hovered {
+    background: red
+  }
+}
+
+td {
+  padding: 7px 5px;
+
+  &.action {
+    width: 100px;
+    text-align: right;
+
+    
+  }
+}

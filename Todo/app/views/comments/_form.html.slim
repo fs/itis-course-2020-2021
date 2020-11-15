@@ -1,6 +1,8 @@
-= form_with(url: task_comments_url(task_id: task.id), method: :post ) do |f|
+= form_with(url: task_comments_url(task_id: task.id), method: :post, html: { class: 'form' } ) do |f|
+  
   .field
     = f.label :content
     = f.text_field :content
+  
   .actions
-    = f.submit "Create"
+    = f.submit "Create", class: 'button'

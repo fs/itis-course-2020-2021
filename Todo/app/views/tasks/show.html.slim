@@ -1,17 +1,21 @@
-p#notice
-  = notice
-p#alert[style="color: red"]
-  = alert
-p
-  strong
-    | Title:
-  = @task.title
-= link_to 'Edit', edit_task_path(@task)
-|  | 
-= link_to 'Back', tasks_path
-h3
-  |  Comments 
+.message.notice = notice
+
+.message.alert = alert
+
+.back 
+  = link_to 'Back', tasks_path, class: 'back__link'
+
+.head
+  h2 
+    strong> Title:
+    = @task.title
+
+  = link_to 'Edit', edit_task_path(@task), class: 'button'
+
+h3 Comments 
+
 = render "comments/form", task: @task
+
 table
   - @task.comments.each do |comment|
     tr
