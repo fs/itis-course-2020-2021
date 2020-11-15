@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_task, only: %i[edit update destroy show]
 
   def create
+    @task = Task.find(params[:task_id])
     @comment = @task.comments.build(content: params[:content])
 
     if @comment.save
