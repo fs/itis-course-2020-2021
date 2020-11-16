@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'home#show'
+
   resources :tasks do
     resources :comments, only: [:create]
   end
