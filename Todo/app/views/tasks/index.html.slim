@@ -1,23 +1,18 @@
-p#notice
-  = notice
-h1
-  | Tasks
-table
-  thead
-    tr
-      th
-        | Title
-      th[colspan="3"]
-  tbody
-    - @tasks.each do |task|
-      tr
-        td
-          = task.title
-        td
-          = link_to 'Show', task
-        td
-          = link_to 'Edit', edit_task_path(task)
-        td
-          = link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Task', new_task_path
+.message.message--notice = notice
+
+h1 Tasks
+
+ul.tasks-list
+  - @tasks.each do |task|
+    li.tasks-list__item
+      .tasks-list__header
+        = link_to task.title, task
+      .tasks-list__comments
+
+      .tasks-list__icons
+        = link_to edit_task_path(task), class: 'tasks-list__icon' do
+          = image_tag 'edit.svg'
+        = link_to task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tasks-list__icon' do
+          = image_tag 'destroy.svg'
+
+= link_to 'New Task', new_task_path, class: 'button'
