@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[edit update destroy show]
 
-  layout "tasks"
-  
+  layout 'tasks'
+
   # GET /tasks
   def index
     @tasks = Task.all
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to(@task, notice: 'Tasls was successfully created')
+      redirect_to(@task, notice: 'Task was successfully created')
     else
       render :new
     end
