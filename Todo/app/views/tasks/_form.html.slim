@@ -1,7 +1,7 @@
 = form_with(model: task, local: true) do |form|
   - if task.errors.any?
     h2
-      = pluralize(task.errors.count, "error")
+      = pluralize(task.errors.count, 'error')
     ul
       - task.errors.full_messages.each do |message|
         li

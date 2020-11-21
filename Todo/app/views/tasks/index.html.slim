@@ -12,7 +12,9 @@ ul.tasks-list
       .tasks-list__icons
         = link_to edit_task_path(task), class: 'tasks-list__icon' do
           = image_tag 'edit.svg'
-        = link_to task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tasks-list__icon' do
+        = link_to task, method: :delete,
+            data: { confirm: 'Are you sure?' },
+            class: 'tasks-list__icon' do
           = image_tag 'destroy.svg'
 
 = link_to 'New Task', new_task_path, class: 'button'
