@@ -1,7 +1,7 @@
 .tasks-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -10px;
+  margin: 0 -10px 20px;
   padding: 0;
 
   &__item {
@@ -28,4 +28,10 @@
       width: 13px;
     }
   }
+}
+
+.sorted-link {
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
 }
