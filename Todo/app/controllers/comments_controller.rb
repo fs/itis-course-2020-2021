@@ -1,17 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :set_task, only: %i[edit update destroy show]
-
   def create
-    @task = Task.find(params[:task_id])
-    @comment = @task.comments.build(content: params[:content])
+    task = Task.find(params[:task_id])
+    @comment = task.comments.build(content: params[:content])
 
-    if @comment.save
-      flash[:notice] = 'Comment was successfully created!'
-    else
-      flash[:alert] = @comment.errors.full_messages.join(', ')
-    end
+    set_flash_message
 
-    redirect_to task_url(id: @task)
+    redirect_to task_url(id: task)
   end
 
   def destroy
@@ -24,7 +18,11 @@ class CommentsController < ApplicationController
 
   private
 
-  def set_task
-    @task = Task.find(params['id'])
+  def set_flash_message
+    if @comment.save
+      flash[:notice] = 'Comment was successfully created!'
+    else
+      flash[:alert] = @comment.errors.full_messages.join(', ')
+    end
   end
 end
