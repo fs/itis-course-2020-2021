@@ -9,12 +9,10 @@ class MyFunc {
     this.sortAscButton = this.$el.querySelector('.js-sort-by-title-asc');
     this.sortDescButton = this.$el.querySelector('.js-sort-by-title-desc');
 
-    this.formattedItems = Array.from(this.items).map(item => {
-      return {
-        ...JSON.parse(item.getAttribute('data-id')), 
-        node: item,
-      }
-    });
+    this.formattedItems = Array.from(this.items).map((item) => ({
+      ...JSON.parse(item.getAttribute('data-id')),
+      node: item,
+    }));
 
     this.bindEvents();
   }
@@ -27,7 +25,7 @@ class MyFunc {
   onSortByTitleASC = () => {
     const sorteItemsByTitle = _.orderBy(this.formattedItems, ['title'], ['asc']);
 
-    sorteItemsByTitle.forEach(item => this.list.appendChild(item.node));
+    sorteItemsByTitle.forEach((item) => this.list.appendChild(item.node));
     this.sortAscButton.classList.add('hidden');
     this.sortDescButton.classList.remove('hidden');
   }
@@ -35,7 +33,7 @@ class MyFunc {
   onSortByTitleDESC = () => {
     const sorteItemsByTitle = _.orderBy(this.formattedItems, ['title'], ['desc']);
 
-    sorteItemsByTitle.forEach(item => this.list.appendChild(item.node));
+    sorteItemsByTitle.forEach((item) => this.list.appendChild(item.node));
 
     this.sortDescButton.classList.add('hidden');
     this.sortAscButton.classList.remove('hidden');
