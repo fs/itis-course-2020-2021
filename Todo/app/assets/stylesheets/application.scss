@@ -1,7 +1,9 @@
 @import 'variables';
+@import "bootstrap/scss/bootstrap.scss";
+
 @import 'mixins';
 @import 'reset';
 @import 'layout';
 @import 'tasks';
 @import 'comments';
-@import 'buttons';
+

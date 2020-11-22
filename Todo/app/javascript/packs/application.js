@@ -10,6 +10,10 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+import 'jquery'
+import 'popper.js'
+import 'bootstrap'
+
 import MyFunc from 'components/script';
 
 require('@rails/ujs').start();

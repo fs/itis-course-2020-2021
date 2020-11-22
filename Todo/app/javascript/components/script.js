@@ -26,8 +26,8 @@ class MyFunc {
     const sorteItemsByTitle = _.orderBy(this.formattedItems, ['title'], ['asc']);
 
     sorteItemsByTitle.forEach((item) => this.list.appendChild(item.node));
-    this.sortAscButton.classList.add('hidden');
-    this.sortDescButton.classList.remove('hidden');
+    this.sortAscButton.classList.add('d-none');
+    this.sortDescButton.classList.remove('d-none');
   }
 
   onSortByTitleDESC = () => {
@@ -35,8 +35,8 @@ class MyFunc {
 
     sorteItemsByTitle.forEach((item) => this.list.appendChild(item.node));
 
-    this.sortDescButton.classList.add('hidden');
-    this.sortAscButton.classList.remove('hidden');
+    this.sortDescButton.classList.add('d-none');
+    this.sortAscButton.classList.remove('d-none');
   }
 }
 

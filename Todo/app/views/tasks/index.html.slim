@@ -4,15 +4,13 @@
   h1 
     ' Tasks
     span.sorted-link.js-sort-by-title-asc Sort by name asc
-    span.sorted-link.js-sort-by-title-desc.hidden Sort by name desk
+    span.sorted-link.js-sort-by-title-desc.d-none Sort by name desk
 
   ul.tasks-list.js-task-list
     - @tasks.each do |task|
-      li.tasks-list__item.js-item[data-id=task.to_json]
-        .tasks-list__header
+      li.card.tasks-list__item.js-item[data-id=task.to_json]          
+        .card-body
           = link_to task.title, task
-        .tasks-list__comments
-
         .tasks-list__icons
           = link_to edit_task_path(task), class: 'tasks-list__icon' do
             = image_tag 'edit.svg'
@@ -20,5 +18,5 @@
               data: { confirm: 'Are you sure?' },
               class: 'tasks-list__icon' do
             = image_tag 'destroy.svg'
-
-  = link_to 'New Task', new_task_path, class: 'button'
+  .form-group
+    = link_to 'New Task', new_task_path, class: 'btn btn-primary'
