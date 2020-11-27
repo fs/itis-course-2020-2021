@@ -1,14 +1,14 @@
 .js-tasks
   .message.message--notice = notice
 
-  h1 
+  h1
     ' Tasks
     span.sorted-link.js-sort-by-title-asc Sort by name asc
     span.sorted-link.js-sort-by-title-desc.d-none Sort by name desk
 
   ul.tasks-list.js-task-list
     - @tasks.each do |task|
-      li.card.tasks-list__item.js-item[data-id=task.to_json]          
+      li.card.tasks-list__item.js-item[data-id=task.to_json]
         .card-body
           = link_to task.title, task
         .tasks-list__icons

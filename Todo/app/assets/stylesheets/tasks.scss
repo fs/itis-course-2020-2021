@@ -6,8 +6,8 @@
 
   &__item {
     margin: 10px;
-    padding-top: 20px;
     min-width: 100px;
+    padding-top: 20px;
     position: relative;
   }
 
@@ -27,7 +27,7 @@
 }
 
 .sorted-link {
+  cursor: pointer;
   font-size: 14px;
   font-weight: normal;
-  cursor: pointer;
 }
