@@ -10,16 +10,19 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import 'jquery'
-import 'popper.js'
-import 'bootstrap'
+import 'jquery';
+import 'popper.js';
+import 'bootstrap';
 
 import MyFunc from 'components/script';
 
-require('@rails/ujs').start();
-require('turbolinks').start();
-require('@rails/activestorage').start();
-require('channels');
+import Rails from '@rails/ujs';
+import turbolinks from 'turbolinks';
+import '@rails/activestorage/src';
+import 'channels';
+
+Rails.start();
+turbolinks.start();
 
 Array.from(document.querySelectorAll('.js-tasks')).forEach(($el) => {
   new MyFunc($el);
