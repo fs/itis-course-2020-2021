@@ -1,18 +1,22 @@
-.message.message--notice = notice
+.js-tasks
+  .message.message--notice = notice
 
-h1 Tasks
+  h1
+    ' Tasks
+    span.sorted-link.js-sort-by-title-asc Sort by name asc
+    span.sorted-link.js-sort-by-title-desc.d-none Sort by name desk
 
-ul.tasks-list
-  - @tasks.each do |task|
-    li.tasks-list__item
-      .tasks-list__header
-        = link_to task.title, task
-      .tasks-list__comments
-
-      .tasks-list__icons
-        = link_to edit_task_path(task), class: 'tasks-list__icon' do
-          = image_tag 'edit.svg'
-        = link_to task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tasks-list__icon' do
-          = image_tag 'destroy.svg'
-
-= link_to 'New Task', new_task_path, class: 'button'
+  ul.tasks-list.js-task-list
+    - @tasks.each do |task|
+      li.card.tasks-list__item.js-item[data-id=task.to_json]
+        .card-body
+          = link_to task.title, task
+        .tasks-list__icons
+          = link_to edit_task_path(task), class: 'tasks-list__icon' do
+            = image_tag 'edit.svg'
+          = link_to task, method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: 'tasks-list__icon' do
+            = image_tag 'destroy.svg'
+  .form-group
+    = link_to 'New Task', new_task_path, class: 'btn btn-primary'

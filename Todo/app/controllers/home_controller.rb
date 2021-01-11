@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   layout 'tasks'
-  
-  def show
-  end
+
+  def show; end
 end
