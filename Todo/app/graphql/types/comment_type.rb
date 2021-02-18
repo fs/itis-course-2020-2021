@@ -5,9 +5,6 @@ module Types
     field :content, String, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :task_id, Integer, null: false
+    field :task, Types::TaskType, null: false
   end
 end
-
-
-
